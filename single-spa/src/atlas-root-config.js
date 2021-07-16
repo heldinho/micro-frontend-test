@@ -15,6 +15,12 @@ registerApplication({
   activeWhen: ["/"],
 });
 
+registerApplication({
+  name: "@atlas/react-todo-list",
+  app: () => System.import("@atlas/react-todo-list"),
+  activeWhen: ["/"],
+});
+
 start({
   urlRerouteOnly: true,
 });
