@@ -1,2 +1,4 @@
 node_modules
 /node_modules
+/single-spa/node_modules
+/vue-todo-list/node_modules
