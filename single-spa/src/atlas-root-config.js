@@ -1,6 +1,12 @@
 import { registerApplication, start } from "single-spa";
 
 registerApplication({
+  name: "header",
+  app: () => System.import("header"),
+  activeWhen: ["/"],
+});
+
+registerApplication({
   name: "@single-spa/welcome",
   app: () =>
     System.import(
