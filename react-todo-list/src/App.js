@@ -23,7 +23,7 @@ export default function App() {
     <>
       <Parcel config={() => System.import("@atlas/vue-todo-list")} />
       <h1>React Todo List</h1>
-      <input ref={input} type="text" onKeyUp={add} />
+      <input className="form-control" ref={input} type="text" onKeyUp={add} />
       <pre>{JSON.stringify(list, undefined, 2)}</pre>
     </>
   );
