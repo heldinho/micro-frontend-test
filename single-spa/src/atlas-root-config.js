@@ -1,30 +1,14 @@
 import { registerApplication, start } from "single-spa";
+import maps from "./config/register-application/maps.json";
 
-registerApplication({
-  name: "header",
-  app: () => System.import("header"),
-  activeWhen: ["/"],
-});
-
-registerApplication({
-  name: "@single-spa/welcome",
-  app: () =>
-    System.import(
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-    ),
-  activeWhen: () => window.location.pathname === "/welcome",
-});
-
-registerApplication({
-  name: "@atlas/vue-todo-list",
-  app: () => System.import("@atlas/vue-todo-list"),
-  activeWhen: ["/"],
-});
-
-registerApplication({
-  name: "@atlas/react-todo-list",
-  app: () => System.import("@atlas/react-todo-list"),
-  activeWhen: ["/"],
+maps.map((item) => {
+  registerApplication({
+    name: item.name,
+    app: () => System.import(item.app),
+    activeWhen: item.exact
+      ? (location) => location.pathname === item.path
+      : [item.path],
+  });
 });
 
 start({

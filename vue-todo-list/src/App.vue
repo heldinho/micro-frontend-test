@@ -48,26 +48,42 @@ export default {
     ],
   }),
 
+  created() {
+    window.addEventListener("@atlas/react-todo-list/add-task", this.fnAdd);
+    if (localStorage.getItem("@atlas/vue-todo-list")) {
+      this.list = JSON.parse(localStorage.getItem("@atlas/vue-todo-list"));
+    }
+  },
+
+  destroyed() {
+    window.removeEventListener("@atlas/react-todo-list/add-task");
+  },
+
   updated() {
-    console.log(typeof this.list);
-    dispatchEvent(
-      new CustomEvent("@atlas/vue-todo-list", {
-        list: this.list,
-      })
-    );
+    // dispatchEvent(
+    //   new CustomEvent("@atlas/vue-todo-list", {
+    //     list: this.list,
+    //   })
+    // );
   },
 
   methods: {
+    fnStore(val) {
+      localStorage.setItem("@atlas/vue-todo-list", JSON.stringify(val));
+    },
     fnSubmit() {
       this.list.push({ text: this.text });
-      localStorage.setItem("@atlas/vue-todo-list", JSON.stringify(this.list));
+      this.fnStore(this.list);
       this.text = "";
-      console.log(typeof this.list);
       dispatchEvent(
         new CustomEvent("@atlas/vue-todo-list", {
           list: this.list,
         })
       );
+    },
+    fnAdd(val) {
+      this.list.push(val.detail);
+      this.fnStore(this.list);
     },
   },
 };

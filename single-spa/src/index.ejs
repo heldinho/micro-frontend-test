@@ -11,19 +11,21 @@
       content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';"
     />
     <meta name="importmap-type" content="systemjs-importmap" />
+    <!-- import global -->
     <script type="systemjs-importmap">
       {
         "imports": {
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+          "@atlas/root-config": "//localhost:9000/atlas-root-config.js",
+
           "vue": "https://unpkg.com/vue",
           "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js",
           "react": "https://unpkg.com/react@17/umd/react.development.js",
           "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
 
-          "@atlas/root-config": "https://root-single-spa.vercel.app/atlas-root-config.js",
           "@atlas/vue-todo-list": "https://spa-todo-list.vercel.app/js/app.b4735421.js",
           "@atlas/react-todo-list": "https://react-todo-list-micro-frontend.vercel.app/atlas-react-todo-list.js",
-          "header": "https://micro-angular.vercel.app/main.js"
+          "angular": "https://micro-angular.vercel.app/main.js"
         }
       }
     </script>
@@ -44,10 +46,10 @@
     <script type="systemjs-importmap">
       {
         "imports": {
-          "@atlas/root-config": "https://root-single-spa.vercel.app/atlas-root-config.js",
+          "@atlas/root-config": "//localhost:9000/atlas-root-config.js",
           "@atlas/vue-todo-list": "https://spa-todo-list.vercel.app/js/app.b4735421.js",
           "@atlas/react-todo-list": "https://react-todo-list-micro-frontend.vercel.app/atlas-react-todo-list.js",
-          "header": "https://micro-angular.vercel.app/main.js"
+          "angular": "https://micro-angular.vercel.app/main.js"
         }
       }
     </script>
