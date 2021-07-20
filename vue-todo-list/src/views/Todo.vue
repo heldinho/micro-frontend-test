@@ -1,13 +1,13 @@
 <template>
-  <div :style="{ padding: '24px' }">
+  <div>
     <h3 v-if="pageTitle !== undefined">{{ pageTitle }}</h3>
-    <a-row>
-      <a-col :md="8">
+    <a-row :gutter="16">
+      <a-col :md="8" :xs="24" :sm="24">
         <a-input v-model="text" @keypress.enter="fnSubmit" />
       </a-col>
     </a-row>
     <a-row>
-      <a-col :md="8">
+      <a-col :md="8" :xs="24" :sm="24">
         <a-list item-layout="horizontal" :data-source="list">
           <a-list-item slot="renderItem" slot-scope="item">
             <a-list-item-meta :description="item.key">
