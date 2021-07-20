@@ -1,24 +1,28 @@
 <template>
-  <div>
+  <div class="todo-list-container">
     <h3 v-if="pageTitle !== undefined">{{ pageTitle }}</h3>
-    <a-row :gutter="16">
-      <a-col :md="8" :xs="24" :sm="24">
-        <a-input v-model="text" @keypress.enter="fnSubmit" />
-      </a-col>
-    </a-row>
     <a-row>
-      <a-col :md="8" :xs="24" :sm="24">
-        <a-list item-layout="horizontal" :data-source="list">
-          <a-list-item slot="renderItem" slot-scope="item">
-            <a-list-item-meta :description="item.key">
-              <a slot="title" href="javascript:">{{ item.text }}</a>
-              <a-avatar
-                slot="avatar"
-                src="https://os.alipayobjects.com/rmsportal/UXamdIxYSkXfoVo.jpg"
-              />
-            </a-list-item-meta>
-          </a-list-item>
-        </a-list>
+      <a-col>
+        <a-row>
+          <a-col :md="8" :xs="24" :sm="24">
+            <a-input v-model="text" @keypress.enter="fnSubmit" />
+          </a-col>
+        </a-row>
+        <a-row>
+          <a-col :md="8" :xs="24" :sm="24">
+            <a-list item-layout="horizontal" :data-source="list">
+              <a-list-item slot="renderItem" slot-scope="item">
+                <a-list-item-meta :description="item.key">
+                  <a slot="title" href="javascript:">{{ item.text }}</a>
+                  <a-avatar
+                    slot="avatar"
+                    src="https://os.alipayobjects.com/rmsportal/UXamdIxYSkXfoVo.jpg"
+                  />
+                </a-list-item-meta>
+              </a-list-item>
+            </a-list>
+          </a-col>
+        </a-row>
       </a-col>
     </a-row>
   </div>
@@ -63,4 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.todo-list-container {
+  margin: 14px;
+}
 </style>
