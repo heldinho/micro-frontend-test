@@ -8,10 +8,12 @@
     "serve:standalone": "vue-cli-service serve --mode standalone"
   },
   "dependencies": {
+    "ant-design-vue": "^1.7.6",
     "core-js": "^3.6.5",
     "single-spa-vue": "^2.1.0",
+    "uuid": "^8.3.2",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
+    "vue-router": "^3.5.2",
     "vuex": "^3.4.0"
   },
   "devDependencies": {

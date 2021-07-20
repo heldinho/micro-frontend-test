@@ -1,9 +1,13 @@
-import Vue from "vue";
-import singleSpaVue from "single-spa-vue";
+import Vue from 'vue';
+import singleSpaVue from 'single-spa-vue';
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.min.css'
 
-import App from "./App.vue";
+import App from './App.vue';
 
 Vue.config.productionTip = false;
+
+Vue.use(Antd);
 
 const vueLifecycles = singleSpaVue({
   Vue,
@@ -19,10 +23,10 @@ const vueLifecycles = singleSpaVue({
           mountParcel: this.mountParcel,
           singleSpa: this.singleSpa,
           */
-        },
+        }
       });
-    },
-  },
+    }
+  }
 });
 
 export const bootstrap = vueLifecycles.bootstrap;
