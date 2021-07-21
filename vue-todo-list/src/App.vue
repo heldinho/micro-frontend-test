@@ -4,7 +4,7 @@
     <Tabs />
     <button class="ant-btn ant-btn-primary">Teste de css atlas</button>
     <a-button type="primary">Teste de css</a-button>
-    <button>Teste</button>
+    <button class="ant-btn">Teste</button>
   </div>
 </template>
 
