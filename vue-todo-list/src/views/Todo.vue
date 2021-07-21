@@ -47,7 +47,7 @@ export default {
   },
 
   destroyed() {
-    window.removeEventListener('@atlas/react-todo-list/add-task');
+    window.removeEventListener('@atlas/react-todo-list/add-task', this.fnAdd);
   },
 
   methods: {
