@@ -53,7 +53,8 @@
           "@atlas/root-config": "//localhost:9000/atlas-root-config.js",
           "@atlas/vue-todo-list": "//localhost:8080/js/app.js",
           "@atlas/react-todo-list": "https://react-todo-list-micro-frontend.vercel.app/atlas-react-todo-list.js",
-          "angular": "https://micro-angular.vercel.app/main.js"
+          "angular": "https://micro-angular.vercel.app/main.js",
+          "@ember-mf/styleguide": "//localhost:9001/ember-mf-styleguide.js"
         }
       }
     </script>
@@ -74,6 +75,7 @@
     <main></main>
     <script>
       System.import("@atlas/root-config");
+      System.import("@ember-mf/styleguide");
     </script>
     <import-map-overrides-full
       show-when-local-storage="devtools"

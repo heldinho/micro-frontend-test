@@ -12,6 +12,7 @@
           <a-col :md="8" :xs="24" :sm="24">
             <a-list item-layout="horizontal" :data-source="list">
               <a-list-item slot="renderItem" slot-scope="item">
+                <a slot="actions" @click="fnRemove(item)">remove</a>
                 <a-list-item-meta :description="item.key">
                   <a slot="title" href="javascript:">{{ item.text }}</a>
                   <a-avatar
@@ -61,6 +62,11 @@ export default {
     fnAdd(val) {
       this.list.push(Object.assign(val.detail, { key: uuid() }));
       this.fnStore(this.list);
+    },
+    fnRemove(val) {
+      const newList = this.list.filter(item => item.key !== val.key);
+      this.list = newList;
+      localStorage.setItem('@atlas/vue-todo-list', JSON.stringify(newList));
     }
   }
 };
