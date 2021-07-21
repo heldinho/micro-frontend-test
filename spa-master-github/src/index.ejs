@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Root Config</title>
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <meta name="importmap-type" content="systemjs-importmap" />
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "react": "https://unpkg.com/react@16/umd/react.production.min.js",
+        "react-dom": "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+        "react-router-dom": "https://unpkg.com/react-router-dom@4.2.2/umd/react-router-dom.min.js",
+        "vue": "https://unpkg.com/vue",
+        "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js",
+        
+        "@atlas/root-config": "https://spa-master.vercel.app/atlas-root-config.js",
+        "@atlas/atlas-firewall": "https://atlas-firewall.vercel.app/atlas-atlas-firewall.js",
+        "@atlas/atlas-auth": "https://atlas-auth.vercel.app/atlas-atlas-auth.js",
+        "@atlas/atlas-app": "https://atlas-app-nu.vercel.app/atlas-atlas-app.js",
+        "@atlas/atlas-app-container": "https://atlas-app-container.vercel.app/atlas-atlas-app-container.js",
+        "@atlas/vue-todo-list": "https://spa-todo-list.vercel.app/js/app.b4735421.js",
+        "@atlas/parcel-angular": "https://parcel-angular.vercel.app/main.js"
+      }
+    }
+  </script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
+  <script src="https://unpkg.com/core-js-bundle@3.1.4/minified.js"></script>
+  <script src="https://unpkg.com/zone.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/system.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/amd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-exports.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-register.min.js"></script>
+<% if (isLocal) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@atlas/root-config": "https://spa-master.vercel.app/atlas-root-config.js",
+        "@atlas/atlas-firewall": "https://atlas-firewall.vercel.app/atlas-atlas-firewall.js",
+        "@atlas/atlas-auth": "https://atlas-auth.vercel.app/atlas-atlas-auth.js",
+        "@atlas/atlas-app": "https://atlas-app-nu.vercel.app/atlas-atlas-app.js",
+        "@atlas/atlas-app-container": "https://atlas-app-container.vercel.app/atlas-atlas-app-container.js",
+        "@atlas/vue-todo-list": "https://spa-todo-list.vercel.app/js/app.b4735421.js",
+        "@atlas/parcel-angular": "https://parcel-angular.vercel.app/main.js",
+        "@atlas/development": "//localhost:8080/js/app.js"
+      }
+    }
+  </script>
+  <% } %>
+ <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+  <% if (isLocal) { %>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+  <% } else { %>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+  <% } %>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <main></main>
+  <script>
+    System.import("@atlas/root-config");
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>
